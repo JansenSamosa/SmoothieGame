@@ -33,7 +33,5 @@ public class Dictionaries : MonoBehaviour
 
     [SerializeField]
     public DrinkOrderInfo[] drinkOrderInfo; 
-
-    private float num = 5; 
 }
 
