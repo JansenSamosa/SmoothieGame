@@ -1,0 +1,4 @@
+repository "SmoothieGame@greenspotj@cloud"
+  path "/"
+    br "/main"
+    co "/main"
