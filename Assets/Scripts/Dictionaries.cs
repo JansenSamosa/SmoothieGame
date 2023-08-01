@@ -14,6 +14,7 @@ public struct Recipe {
     public string[] ingredients;
     public string liquidBase;
     public float liquidVolume;
+    public float timeToBlend;
 }
 
 [System.Serializable]
