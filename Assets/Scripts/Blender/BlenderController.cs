@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlenderController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class BlenderController : MonoBehaviour
     private LiquidHolderController liquidBase;
 
     private Recipe[] recipes;
+
+    [SerializeField] private Slider slider;
 
     void Start() {
         liquidBase = GetComponent<LiquidHolderController>();
@@ -24,6 +27,8 @@ public class BlenderController : MonoBehaviour
     public void Blend() {
         string drinkToMake = "_empty";
         float volumeToMake = 0;
+        float blendWaitTimeMultiplier = 0;
+        float blendWaitTime = 0;
 
         for(int i = 0; i < recipes.Length; i++) {
             float newVolume = CheckRecipe(recipes[i]);
@@ -31,9 +36,20 @@ public class BlenderController : MonoBehaviour
             if(newVolume > volumeToMake) {
                 volumeToMake = newVolume;
                 drinkToMake = recipes[i].result;
+                blendWaitTimeMultiplier = volumeToMake / recipes[i].resultVolume;
+                blendWaitTime = recipes[i].timeToBlend * blendWaitTimeMultiplier;
             }
         }
-        
+        StartCoroutine(blendingTime(blendWaitTime, volumeToMake, drinkToMake));
+    }
+
+    IEnumerator blendingTime(float waitTime, float volumeToMake, string drinkToMake) {
+        for (int i = 0; i <= waitTime; i++) {
+            yield return new WaitForSeconds(1);
+            float percentageOfTime = i / waitTime;
+            slider.value = percentageOfTime;
+        }
+
         if(volumeToMake > 0) {
             EmptyBlender();
             liquidBase.liquid = drinkToMake;
