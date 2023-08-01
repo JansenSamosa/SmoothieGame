@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -46,5 +47,14 @@ public class GameController : MonoBehaviour
         shopClosedUI.SetActive(true);
 
         shopClosedUI.transform.GetChild(2).GetComponent<TMP_Text>().text = "Profits: $" + moneyController.playerMoney;
+    }
+
+    public void Continue() {
+        float currentMoney = PlayerPrefs.GetFloat("money", 0);
+
+        PlayerPrefs.SetFloat("money", currentMoney + moneyController.playerMoney);
+        PlayerPrefs.SetString("game-state", "activity-choose-night");
+
+        SceneManager.LoadScene("SelectActivityScene");
     }
 }
