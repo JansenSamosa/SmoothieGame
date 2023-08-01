@@ -97,7 +97,6 @@ public class CustomerController : MonoBehaviour
         realTimePassed += Time.deltaTime;
         if (realTimePassed >= timeLimitToTakeOrder) {
             npcState = "leaving";
-            Debug.Log("Customer left!");
         }
     }
     public void SetNPCState(string state) {
