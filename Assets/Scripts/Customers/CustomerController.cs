@@ -18,6 +18,11 @@ public class CustomerController : MonoBehaviour
     [SerializeField] private Vector3 pickUpZoneRightCorner;
     private Vector3 pickupPosition;
 
+    // time limit to take a customer's order
+    public int timeLimitToTakeOrder = 70;
+    private float realTimePassed = 0;
+
+
     void Awake() {
         ordersController = GameObject.FindGameObjectWithTag("GameController").GetComponent<OrdersController>();
     }
@@ -40,8 +45,10 @@ public class CustomerController : MonoBehaviour
     void Update() {
         if(npcState == "in line") {
             HandleInLineState();
+            incrementTimeLimitToTakeCustomerOrder();
         } else if(npcState == "ordering") {
             HandleOrderingState();
+            incrementTimeLimitToTakeCustomerOrder();
         } else if (npcState == "picking up") {
             HandlePickingUpState();
         } else if (npcState == "leaving") {
@@ -85,7 +92,16 @@ public class CustomerController : MonoBehaviour
         dialogue.dialogueEnabled = false;
     }
 
+    void incrementTimeLimitToTakeCustomerOrder() {
+        // incrementing the time limit to take the customer's order
+        realTimePassed += Time.deltaTime;
+        if (realTimePassed >= timeLimitToTakeOrder) {
+            npcState = "leaving";
+            Debug.Log("Customer left!");
+        }
+    }
     public void SetNPCState(string state) {
         npcState = state;
     }
 }
+
