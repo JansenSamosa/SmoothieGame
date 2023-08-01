@@ -976,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &33920123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2766,7 +2766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients: []
   slider: {fileID: 1673594707}
-  blenderAnimationObject: {fileID: 0}
+  blenderAnimationObject: {fileID: 419222168}
 --- !u!54 &365207650
 Rigidbody:
   m_ObjectHideFlags: 0
