@@ -26,6 +26,15 @@ public class OrdersController : MonoBehaviour
 
     private float prevTime = 0;
 
+    //Tip related variables
+    [SerializeField] private int timeToMakeOrder = 45;
+    [SerializeField] private float maxTip = 5;
+    [SerializeField] private float timeRemainingForMaxTip = 30;
+    [SerializeField] private float timeRemainingForMinTip = 5;
+    [SerializeField] private float depreciationRate;
+    private float tipAmount = 0;
+    
+
     void Awake() {
         drinkOrderInfo = GameObject.FindGameObjectWithTag("GameController").GetComponent<Dictionaries>().drinkOrderInfo;
         moneyController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MoneyController>();
@@ -33,7 +42,8 @@ public class OrdersController : MonoBehaviour
     }
 
     void Start() {
-        //StartCoroutine(createRandomOrders());
+        //Sets depreciation rate for the tip to customer based on adjustable variables
+        depreciationRate = maxTip / (timeRemainingForMaxTip - timeRemainingForMinTip);
     }
     
     void Update() {
@@ -61,8 +71,8 @@ public class OrdersController : MonoBehaviour
         Order newOrder = new Order();
         newOrder.drinks = newDrinks;
         newOrder.totalCost = newDrink.cost;
-        newOrder.timeMax = 45;
-        newOrder.timeRemaining = 45;        
+        newOrder.timeMax = timeToMakeOrder;
+        newOrder.timeRemaining = timeToMakeOrder;        
 
         return newOrder;
     }
@@ -93,7 +103,15 @@ public class OrdersController : MonoBehaviour
         activeOrdersUI.RemoveAt(index);
         activeOrders.Remove(order);
 
+        if (order.timeRemaining >= timeRemainingForMaxTip) {
+            tipAmount = maxTip;
+        } else if (order.timeRemaining > timeRemainingForMinTip) {
+            tipAmount = maxTip - (depreciationRate * order.timeRemaining);
+        } else {
+            tipAmount = 0;
+        }
         moneyController.AddMoney(order.totalCost);
+        moneyController.AddMoney(tipAmount);
     }
     
     IEnumerator createRandomOrders() {
