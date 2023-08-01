@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 18e3e4e63a11d204ab84c54a0fbb6b19,
+    type: 2}
   m_LightingSettings: {fileID: 1081552962}
 --- !u!196 &4
 NavMeshSettings:
@@ -1132,6 +1133,11 @@ MonoBehaviour:
   orderUIPrefab: {fileID: 7243609441318545452, guid: 466c8b80628a32b48bba785338e23064,
     type: 3}
   ordersUIContainer: {fileID: 2331461539181269438}
+  timeToMakeOrder: 45
+  maxTip: 5
+  timeRemainingForMaxTip: 30
+  timeRemainingForMinTip: 5
+  depreciationRate: 0
 --- !u!1 &34888734
 GameObject:
   m_ObjectHideFlags: 0
@@ -8957,6 +8963,11 @@ MonoBehaviour:
   orderUIPrefab: {fileID: 7243609441318545452, guid: 466c8b80628a32b48bba785338e23064,
     type: 3}
   ordersUIContainer: {fileID: 2331461539181269438}
+  timeToMakeOrder: 45
+  maxTip: 5
+  timeRemainingForMaxTip: 30
+  timeRemainingForMinTip: 5
+  depreciationRate: 0
 --- !u!114 &1551209972
 MonoBehaviour:
   m_ObjectHideFlags: 0
