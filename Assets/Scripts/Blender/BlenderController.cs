@@ -11,6 +11,9 @@ public class BlenderController : MonoBehaviour
     private Recipe[] recipes;
 
     [SerializeField] private Slider slider;
+    [SerializeField] private GameObject blenderAnimationObject;
+
+    private bool isBlending = false;
 
     void Start() {
         liquidBase = GetComponent<LiquidHolderController>();
@@ -19,42 +22,54 @@ public class BlenderController : MonoBehaviour
     }
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.B)) {
-            Blend();
-        }
+        slider.gameObject.SetActive(isBlending);
+        blenderAnimationObject.SetActive(isBlending);
     }
 
     public void Blend() {
-        string drinkToMake = "_empty";
-        float volumeToMake = 0;
-        float blendWaitTimeMultiplier = 0;
-        float blendWaitTime = 0;
+        if(!isBlending) {
+            string drinkToMake = "_empty";
+            float volumeToMake = 0;
+            float blendWaitTimeMultiplier = 0;
+            float blendWaitTime = 0;
 
-        for(int i = 0; i < recipes.Length; i++) {
-            float newVolume = CheckRecipe(recipes[i]);
+            for(int i = 0; i < recipes.Length; i++) {
+                float newVolume = CheckRecipe(recipes[i]);
 
-            if(newVolume > volumeToMake) {
-                volumeToMake = newVolume;
-                drinkToMake = recipes[i].result;
-                blendWaitTimeMultiplier = volumeToMake / recipes[i].resultVolume;
-                blendWaitTime = recipes[i].timeToBlend * blendWaitTimeMultiplier;
+                if(newVolume > volumeToMake) {
+                    volumeToMake = newVolume;
+                    drinkToMake = recipes[i].result;
+                    blendWaitTimeMultiplier = volumeToMake / recipes[i].resultVolume;
+                    blendWaitTime = recipes[i].timeToBlend * blendWaitTimeMultiplier;
+                }
+            }
+
+            if(volumeToMake > 0) {
+                StartCoroutine(blendingTime(blendWaitTime, volumeToMake, drinkToMake));
             }
         }
-        StartCoroutine(blendingTime(blendWaitTime, volumeToMake, drinkToMake));
     }
 
     IEnumerator blendingTime(float waitTime, float volumeToMake, string drinkToMake) {
-        for (int i = 0; i <= waitTime; i++) {
-            yield return new WaitForSeconds(1);
+        isBlending = true;
+        EmptyBlender();
+        liquidBase.enabled = false;
+
+        float sliderStep = 0.1f;
+        slider.value = 0;
+
+        for (float i = 0; i <= waitTime; i += sliderStep) {
+            yield return new WaitForSeconds(sliderStep);
             float percentageOfTime = i / waitTime;
             slider.value = percentageOfTime;
         }
 
-        if(volumeToMake > 0) {
-            EmptyBlender();
-            liquidBase.liquid = drinkToMake;
-            liquidBase.volumeOfLiquid = volumeToMake;
-        }
+        liquidBase.enabled = true;
+
+        liquidBase.liquid = drinkToMake;
+        liquidBase.volumeOfLiquid = volumeToMake;
+
+        isBlending = false;
     }
 
     //returns the volume to make of this recipe

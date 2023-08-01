@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731706, g: 0.13414721, b: 0.12107831, a: 1}
+  m_IndirectSpecularColor: {r: 0.37706602, g: 0.40843403, b: 0.388297, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2766,6 +2766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredients: []
   slider: {fileID: 1673594707}
+  blenderAnimationObject: {fileID: 0}
 --- !u!54 &365207650
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3815,7 +3816,7 @@ GameObject:
   - component: {fileID: 470914318}
   - component: {fileID: 470914317}
   m_Layer: 6
-  m_Name: Blender (3)
+  m_Name: wall
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7374,7 +7375,7 @@ GameObject:
   - component: {fileID: 1197095124}
   - component: {fileID: 1197095123}
   m_Layer: 6
-  m_Name: Blender (4)
+  m_Name: wall
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9393,7 +9394,7 @@ GameObject:
   - component: {fileID: 1575498606}
   - component: {fileID: 1575498605}
   m_Layer: 6
-  m_Name: Blender (1)
+  m_Name: wall
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11542,7 +11543,7 @@ GameObject:
   - component: {fileID: 1903333784}
   - component: {fileID: 1903333783}
   m_Layer: 6
-  m_Name: Blender (2)
+  m_Name: wall
   m_TagString: Draggable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
