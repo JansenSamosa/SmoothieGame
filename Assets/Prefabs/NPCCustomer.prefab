@@ -1319,6 +1319,7 @@ MonoBehaviour:
   dialogue: {fileID: 3929891548471064424}
   pickUpZoneLeftCorner: {x: 5, y: 0, z: -4.25}
   pickUpZoneRightCorner: {x: 7, y: 0, z: -0.75}
+  timeLimitToTakeOrder: 45
 --- !u!1 &8713362827830371027
 GameObject:
   m_ObjectHideFlags: 0
