@@ -32,6 +32,6 @@ public class Dictionaries : MonoBehaviour
     public Recipe[] recipes;
 
     [SerializeField]
-    public DrinkOrderInfo[] drinkOrderInfo;  
+    public DrinkOrderInfo[] drinkOrderInfo; 
 }
 
