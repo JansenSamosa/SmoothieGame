@@ -9758,6 +9758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d827648395e5d2e47809fa6f3fdd6693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gainLossAnimPrefab: {fileID: 1162827967933144580, guid: b7f7ba941d607014fa1b810f8717f440,
+    type: 3}
   playerMoney: 0
   moneyUI: {fileID: 91101795}
 --- !u!114 &1551209975

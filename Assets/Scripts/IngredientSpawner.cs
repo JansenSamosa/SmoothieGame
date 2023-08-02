@@ -33,5 +33,6 @@ public class IngredientSpawner : MonoBehaviour
         currentIngredient = Instantiate(ingredientPrefab, spawnPoint.position, Quaternion.identity).transform;
 
         moneyController.SubtractMoney(cost);
+        moneyController.PlayGainLossAnim(-cost, spawnPoint.position, false);
     }
 }

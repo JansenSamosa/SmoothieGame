@@ -125,7 +125,7 @@ public class OrdersController : MonoBehaviour
         customerSatisfactionController.decreaseCustomerSatisfaction();
     }
 
-    public void CompleteOrder(Order order) {
+    public void CompleteOrder(Order order, Vector3 animPos) {
         order.customerOfOrder.SetNPCState("leaving");
 
         int index = activeOrders.IndexOf(order);
@@ -140,8 +140,12 @@ public class OrdersController : MonoBehaviour
         } else {
             tipAmount = 0;
         }
+
         moneyController.AddMoney(order.totalCost);
+        moneyController.PlayGainLossAnim(order.totalCost, animPos, false);
+
         moneyController.AddMoney(tipAmount);
+        moneyController.PlayGainLossAnim(tipAmount, animPos + new Vector3(0.1f, 0.25f, 0.1f), true);
 
         //Increase customer satisfaction for completing an order on time
         customerSatisfactionController.increaseCustomerSatisfaction();
