@@ -24,18 +24,22 @@ public class CustomerController : MonoBehaviour
     private float realTimePassed = 0;
     [SerializeField] private Slider timerUI;
 
+    //customer specific variables related to their personality
+    [SerializeField] private string nameOfCustomer;
+    [SerializeField] private string preferredDrink;
 
     void Awake() {
         ordersController = GameObject.FindGameObjectWithTag("GameController").GetComponent<OrdersController>();
     }
 
     void Start() {  
-        // create random order and assign it to this customer
-        customerOrder = ordersController.CreateRandomOrder();     
+        // create order for customer based on their preferred drink
+        //if preferredDrink is not found, random order is created and returned
+        customerOrder = ordersController.FindOrder(preferredDrink);    
         customerOrder.customerOfOrder = this;
 
         // create dialogue for this customer based on the order and specific customer
-        string newDialogue = "Hello! I would like a " + customerOrder.drinks[0].drinkName + " please.";
+        string newDialogue = "Hello! My name is " + nameOfCustomer + ". I would like a " + customerOrder.drinks[0].drinkName + " please.";
         dialogue.SetDialogue(newDialogue);
 
         // determine where the customer will go to pick up the order

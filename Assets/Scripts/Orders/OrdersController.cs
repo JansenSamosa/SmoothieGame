@@ -80,6 +80,27 @@ public class OrdersController : MonoBehaviour
         return newOrder;
     }
 
+    //this function will find the preferred drink of the customer in DrinkOrderInfo and return that order
+    public Order FindOrder(string orderName) {
+        for (int i = 0; i < drinkOrderInfo.Length; i++) {
+            if (drinkOrderInfo[i].drinkName == orderName) {
+                DrinkOrderInfo[] newDrinks = {drinkOrderInfo[i]};
+
+                // Create new order
+                Order newOrder = new Order();
+                newOrder.drinks = newDrinks;
+                newOrder.totalCost = drinkOrderInfo[i].cost;
+                newOrder.timeMax = timeToMakeOrder;
+                newOrder.timeRemaining = timeToMakeOrder;
+
+                return newOrder;
+            }
+        }
+        //if order not found, random order is created and returned
+        Order randomOrder = CreateRandomOrder();
+        return randomOrder;
+    }
+
     public void PlaceOrder(Order order) {
         // Create UI object
         OrderUIController newUI = Instantiate(orderUIPrefab, ordersUIContainer).GetComponent<OrderUIController>();
