@@ -4991,7 +4991,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh108682
+  m_Name: pb_Mesh60102
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5830,7 +5830,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh108430
+  m_Name: pb_Mesh59850
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6078,7 +6078,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh108440
+  m_Name: pb_Mesh59860
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -6356,7 +6356,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh107924
+  m_Name: pb_Mesh59344
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7593,7 +7593,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh108558
+  m_Name: pb_Mesh59978
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -8693,6 +8693,9 @@ MonoBehaviour:
   baseSpawnInterval: 20
   spawnIntervalVariance: 10
   newCustomerSound: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
+  rushHourSpawnInterval: 7
+  rushHourSpawnVariance: 7
+  gameController: {fileID: 1551209976}
 --- !u!4 &1399833445
 Transform:
   m_ObjectHideFlags: 0
@@ -9506,6 +9509,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopOpenTime: 480
   shopCloseTime: 1200
+  rushHourStart: 780
+  rushHourEnd: 900
+  isRushHour: 0
   shopClosedUI: {fileID: 537247190}
   customerLine: {fileID: 1399833444}
 --- !u!1 &1575498603
@@ -10779,7 +10785,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh108210
+  m_Name: pb_Mesh59630
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10944,7 +10950,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh108146
+  m_Name: pb_Mesh59566
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
