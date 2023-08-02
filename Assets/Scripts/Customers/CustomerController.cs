@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+  
 public class CustomerController : MonoBehaviour
 {
     // states = "in line" or "ordering" or "picking up" or "leaving"
@@ -19,8 +20,9 @@ public class CustomerController : MonoBehaviour
     private Vector3 pickupPosition;
 
     // time limit to take a customer's order
-    public int timeLimitToTakeOrder = 70;
+    [SerializeField] private int timeLimitToTakeOrder = 70;
     private float realTimePassed = 0;
+    [SerializeField] private Slider timerUI;
 
 
     void Awake() {
@@ -43,6 +45,9 @@ public class CustomerController : MonoBehaviour
     }
 
     void Update() {
+        //only show timer if the customer is in line or ordering
+        timerUI.gameObject.SetActive(npcState == "ordering");
+        
         if(npcState == "in line") {
             HandleInLineState();
             incrementTimeLimitToTakeCustomerOrder();
@@ -57,6 +62,7 @@ public class CustomerController : MonoBehaviour
             HandleUndefinedState();
         }
     }
+
     void HandleInLineState() {
         dialogue.dialogueEnabled = false;
     }
@@ -68,6 +74,8 @@ public class CustomerController : MonoBehaviour
         switch(playerResponse) {
             case 1:
                 dialogue.dialogueEnabled = false;
+                customerOrder.timeMax = timeLimitToTakeOrder;
+                customerOrder.timeRemaining = timeLimitToTakeOrder - realTimePassed;
                 ordersController.PlaceOrder(customerOrder);
                 SetNPCState("picking up");
                 break;
@@ -96,8 +104,9 @@ public class CustomerController : MonoBehaviour
         // incrementing the time limit to take the customer's order
         realTimePassed += Time.deltaTime;
         if (realTimePassed >= timeLimitToTakeOrder) {
-            npcState = "leaving";
+            SetNPCState("leaving");
         }
+        timerUI.value = (float)(timeLimitToTakeOrder-realTimePassed)/timeLimitToTakeOrder;
     }
     public void SetNPCState(string state) {
         npcState = state;
