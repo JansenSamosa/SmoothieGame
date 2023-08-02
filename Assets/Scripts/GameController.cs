@@ -49,7 +49,6 @@ public class GameController : MonoBehaviour
         } else {
             isRushHour = false;
             Debug.Log("Not Rush Hour");
-
         }
     }
 
