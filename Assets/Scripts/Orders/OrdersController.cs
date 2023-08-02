@@ -33,7 +33,8 @@ public class OrdersController : MonoBehaviour
     [SerializeField] private float maxTip = 5;
     [SerializeField] private float timeRemainingForMaxTip = 30;
     [SerializeField] private float timeRemainingForMinTip = 5;
-    [SerializeField] private float depreciationRate;
+    
+    private float depreciationRate;
     private float tipAmount = 0;
     
 
@@ -141,6 +142,8 @@ public class OrdersController : MonoBehaviour
             tipAmount = 0;
         }
 
+        tipAmount = Mathf.Clamp(tipAmount, 0, maxTip);
+    
         moneyController.AddMoney(order.totalCost);
         moneyController.PlayGainLossAnim(order.totalCost, animPos, false);
 
