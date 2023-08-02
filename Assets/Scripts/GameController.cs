@@ -45,10 +45,10 @@ public class GameController : MonoBehaviour
         }
         if (clockController.inGameTime >= rushHourStart && clockController.inGameTime < rushHourEnd) {
             isRushHour = true;
-            Debug.Log("Rush Hour");
+            //Debug.Log("Rush Hour");
         } else {
             isRushHour = false;
-            Debug.Log("Not Rush Hour");
+            //Debug.Log("Not Rush Hour");
 
         }
     }

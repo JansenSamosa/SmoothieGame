@@ -45,9 +45,9 @@ public class OrderCompleter : MonoBehaviour
             }   
 
             if(isCompleted) {
-                audio.Play();
+                //audio.Play();
                 Debug.Log("Completed order: " + orderToFulfill.drinks[0].drinkName);
-                controller.CompleteOrder(orderToFulfill);
+                controller.CompleteOrder(orderToFulfill, transform.position + new Vector3(0, 0.5f, 0));
 
                 //Destroy drinks used to fulfill order
                 for(int j = 0; j < drinksUsedToFulfillOrder.Count; j++) {
