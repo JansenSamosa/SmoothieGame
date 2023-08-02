@@ -22,6 +22,11 @@ public class CustomerLineController : MonoBehaviour
     [SerializeField] private AudioClip newCustomerSound;
     private AudioSource audio;
 
+    //Rush hour variables and access to isRushHour bool from GameController
+    [SerializeField] private float rushHourSpawnInterval = 7;
+    [SerializeField] private float rushHourSpawnVariance = 7;
+    [SerializeField] private GameController gameController;
+
     void Start() {
         audio = GetComponent<AudioSource>();
     }
@@ -30,7 +35,11 @@ public class CustomerLineController : MonoBehaviour
         if(Time.time - prevSpawnTime >= timeToNextSpawn) {
             CreateRandomCustomer();
 
-            timeToNextSpawn = baseSpawnInterval + Random.Range(-spawnIntervalVariance, spawnIntervalVariance);
+            if (gameController.isRushHour) {
+                timeToNextSpawn = rushHourSpawnInterval + Random.Range(-rushHourSpawnVariance, rushHourSpawnVariance);
+            } else {
+                timeToNextSpawn = baseSpawnInterval + Random.Range(-spawnIntervalVariance, spawnIntervalVariance);
+            }
             prevSpawnTime = Time.time;
         }
 
@@ -78,4 +87,6 @@ public class CustomerLineController : MonoBehaviour
             customer.localPosition = new Vector3(customer.localPosition.x, 0, -i * spacingBetweenCustomers);
         }
     }
+
 }
+

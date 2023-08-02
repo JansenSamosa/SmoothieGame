@@ -11,6 +11,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private int shopCloseTime = 1200;
 
+    [SerializeField] 
+    private int rushHourStart = 780; //1:00PM
+    
+    [SerializeField]
+    private int rushHourEnd = 900; //3:00PM
+
+    public bool isRushHour = false;
+
     [SerializeField]
     private GameObject shopClosedUI;
 
@@ -34,6 +42,14 @@ public class GameController : MonoBehaviour
     void Update() {
         if(clockController.inGameTime >= shopCloseTime) {
             CloseShop();
+        }
+        if (clockController.inGameTime >= rushHourStart && clockController.inGameTime < rushHourEnd) {
+            isRushHour = true;
+            Debug.Log("Rush Hour");
+        } else {
+            isRushHour = false;
+            Debug.Log("Not Rush Hour");
+
         }
     }
 
