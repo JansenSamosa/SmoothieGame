@@ -68,7 +68,8 @@ public class LiquidHolderController : MonoBehaviour
                 otherHolder != this && 
                 volumeOfLiquid > 0 && 
                 otherHolder.maxVolume > otherHolder.volumeOfLiquid &&
-                (otherHolder.liquid == liquid || otherHolder.liquid == "_empty");
+                (otherHolder.liquid == liquid || otherHolder.liquid == "_empty") &&
+                otherHolder.enabled;
     }
 
     void StartPouring() {
