@@ -15,6 +15,8 @@ public class CustomerController : MonoBehaviour
 
     private OrdersController ordersController;
 
+    private CustomerSatisfactionController customerSatisfactionController;
+
     [SerializeField] private Vector3 pickUpZoneLeftCorner;
     [SerializeField] private Vector3 pickUpZoneRightCorner;
     private Vector3 pickupPosition;
@@ -30,6 +32,7 @@ public class CustomerController : MonoBehaviour
 
     void Awake() {
         ordersController = GameObject.FindGameObjectWithTag("GameController").GetComponent<OrdersController>();
+        customerSatisfactionController = GameObject.FindGameObjectWithTag("GameController").GetComponent<CustomerSatisfactionController>();
     }
 
     void Start() {  
@@ -85,6 +88,10 @@ public class CustomerController : MonoBehaviour
                 break;
             case 2: 
                 SetNPCState("leaving");
+
+                //Decrease customer satisfaction for refusing to serve the customer
+                customerSatisfactionController.decreaseCustomerSatisfaction();
+
                 break;
             default:
                 dialogue.dialogueEnabled = true;
@@ -109,6 +116,9 @@ public class CustomerController : MonoBehaviour
         realTimePassed += Time.deltaTime;
         if (realTimePassed >= timeLimitToTakeOrder) {
             SetNPCState("leaving");
+
+            //Decrease customer satisfaction for taking too long to take the customer's order
+            customerSatisfactionController.decreaseCustomerSatisfaction();
         }
         timerUI.value = (float)(timeLimitToTakeOrder-realTimePassed)/timeLimitToTakeOrder;
     }

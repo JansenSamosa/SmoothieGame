@@ -24,6 +24,8 @@ public class OrdersController : MonoBehaviour
     private DrinkOrderInfo[] drinkOrderInfo;
     private MoneyController moneyController;
 
+    private CustomerSatisfactionController customerSatisfactionController;
+
     private float realTimePassed = 0;
 
     //Tip related variables
@@ -38,6 +40,7 @@ public class OrdersController : MonoBehaviour
     void Awake() {
         drinkOrderInfo = GameObject.FindGameObjectWithTag("GameController").GetComponent<Dictionaries>().drinkOrderInfo;
         moneyController = GameObject.FindGameObjectWithTag("GameController").GetComponent<MoneyController>();
+        customerSatisfactionController = GameObject.FindGameObjectWithTag("GameController").GetComponent<CustomerSatisfactionController>();
 
     }
 
@@ -117,6 +120,9 @@ public class OrdersController : MonoBehaviour
         Destroy(activeOrdersUI[index].gameObject);
         activeOrdersUI.RemoveAt(index);
         activeOrders.Remove(order);
+
+        //Decrease customer satisfaction for an incomplete order
+        customerSatisfactionController.decreaseCustomerSatisfaction();
     }
 
     public void CompleteOrder(Order order, Vector3 animPos) {
@@ -140,6 +146,9 @@ public class OrdersController : MonoBehaviour
 
         moneyController.AddMoney(tipAmount);
         moneyController.PlayGainLossAnim(tipAmount, animPos + new Vector3(0.1f, 0.25f, 0.1f), true);
+
+        //Increase customer satisfaction for completing an order on time
+        customerSatisfactionController.increaseCustomerSatisfaction();
     }
     
     IEnumerator createRandomOrders() {
