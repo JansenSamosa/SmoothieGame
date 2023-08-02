@@ -43,14 +43,14 @@ public class GameController : MonoBehaviour
         if(clockController.inGameTime >= shopCloseTime) {
             CloseShop();
         }
-        if (clockController.inGameTime >= rushHourStart && clockController.inGameTime <= rushHourEnd) {
+        if (clockController.inGameTime >= rushHourStart && clockController.inGameTime < rushHourEnd) {
             customerLine.RushHour();
             Debug.Log("Rush Hour");
         }
-        if (clockController.inGameTime == rushHourEnd) {
+        if (clockController.inGameTime >= rushHourEnd) {
             rushHourComplete = true;
             customerLine.notRushHour();
-            Debug.Log("Rush Hour End");
+            Debug.Log("Not Rush Hour");
         }
     }
 
