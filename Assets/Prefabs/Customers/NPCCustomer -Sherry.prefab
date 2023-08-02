@@ -198,7 +198,6 @@ GameObject:
   - component: {fileID: 4606441795562137702}
   - component: {fileID: 8510998812110351924}
   - component: {fileID: 5409775443535181083}
-  - component: {fileID: 2811255103819809513}
   m_Layer: 0
   m_Name: model
   m_TagString: Untagged
@@ -249,7 +248,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c90343dc78dd7794a91d229780c48f60, type: 2}
+  - {fileID: 2100000, guid: 065179d31fc748041b74ec724b699512, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -294,18 +293,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2811255103819809513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514712572862058101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da90de3408826474cb87e800aaa78208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2232792305565712562
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &116014788114639921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1182,7 +1169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7311348733804131750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1280,7 +1267,7 @@ GameObject:
   - component: {fileID: 9059882680385354254}
   - component: {fileID: 3609894771019571240}
   m_Layer: 0
-  m_Name: NPCCustomer
+  m_Name: NPCCustomer -Sherry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1320,6 +1307,8 @@ MonoBehaviour:
   pickUpZoneLeftCorner: {x: 5, y: 0, z: -4.25}
   pickUpZoneRightCorner: {x: 7, y: 0, z: -0.75}
   timeLimitToTakeOrder: 45
+  nameOfCustomer: Sherry
+  preferredDrink: smoothie-banana
 --- !u!1 &8713362827830371027
 GameObject:
   m_ObjectHideFlags: 0
