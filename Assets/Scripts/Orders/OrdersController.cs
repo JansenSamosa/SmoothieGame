@@ -24,7 +24,7 @@ public class OrdersController : MonoBehaviour
     private DrinkOrderInfo[] drinkOrderInfo;
     private MoneyController moneyController;
 
-    private float prevTime = 0;
+    private float realTimePassed = 0;
 
     //Tip related variables
     [SerializeField] private int timeToMakeOrder = 45;
@@ -47,10 +47,13 @@ public class OrdersController : MonoBehaviour
     }
     
     void Update() {
-        if(Time.time - prevTime >= 1) {
+        realTimePassed += Time.deltaTime;
+        float updateStepTime = 0.1f;
+        
+        if(realTimePassed >= updateStepTime) {
             for(int i = 0; i < activeOrders.Count; i++) {
                 Order updatedOrder = activeOrders[i];
-                updatedOrder.timeRemaining -= 1;
+                updatedOrder.timeRemaining -= updateStepTime;
 
                 activeOrders[i] = updatedOrder;
                 activeOrdersUI[i].UpdateUI(updatedOrder);
@@ -59,7 +62,7 @@ public class OrdersController : MonoBehaviour
                     IncompleteOrder(updatedOrder);
                 }
             }
-            prevTime = Time.time;
+            realTimePassed = 0;
         }
     }
 
