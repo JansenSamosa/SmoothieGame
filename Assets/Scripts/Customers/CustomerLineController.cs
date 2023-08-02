@@ -22,6 +22,9 @@ public class CustomerLineController : MonoBehaviour
     [SerializeField] private AudioClip newCustomerSound;
     private AudioSource audio;
 
+    //Reference to game clock for rush hour feature
+    //[SerializeField] private GameClockController gameClockController;
+
     void Start() {
         audio = GetComponent<AudioSource>();
     }
@@ -78,4 +81,18 @@ public class CustomerLineController : MonoBehaviour
             customer.localPosition = new Vector3(customer.localPosition.x, 0, -i * spacingBetweenCustomers);
         }
     }
+
+
+    //Sets the baseSpawnInterval and spawnIntervalVariance and called by the GameController during rush hour
+    public void RushHour() {
+        baseSpawnInterval = 7;
+        spawnIntervalVariance = 7;
+    }
+
+    public void notRushHour() {
+        baseSpawnInterval = 10;
+        spawnIntervalVariance = 10;
+    }
+
 }
+
