@@ -1631,7 +1631,7 @@ MonoBehaviour:
   dialogue: {fileID: 3929891548471064424}
   pickUpZoneLeftCorner: {x: 5, y: 0, z: -4.25}
   pickUpZoneRightCorner: {x: 7, y: 0, z: -0.75}
-  timeLimitToTakeOrder: 75
+  timeLimitToTakeOrder: 90
   timerUI: {fileID: 7416838345976762669}
   nameOfCustomer: Chris
   preferredDrink: smoothie-strawberry-banana
