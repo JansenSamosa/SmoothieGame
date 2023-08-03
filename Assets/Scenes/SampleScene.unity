@@ -1145,7 +1145,7 @@ MonoBehaviour:
   maxTip: 5
   timeRemainingForMaxTip: 30
   timeRemainingForMinTip: 5
-  depreciationRate: 0
+  CSTipModifier: 1
 --- !u!1 &34888734
 GameObject:
   m_ObjectHideFlags: 0
@@ -8971,10 +8971,10 @@ MonoBehaviour:
   - {fileID: 6998894062848846612, guid: 2335c1281291c004fa79f8c154c512fd, type: 3}
   - {fileID: 6998894062848846612, guid: 982410c56094c194f9605283f21b7a3b, type: 3}
   spacingBetweenCustomers: 2
-  baseSpawnInterval: 20
-  spawnIntervalVariance: 10
+  baseSpawnInterval: 25
+  spawnIntervalVariance: 12
   newCustomerSound: {fileID: 8300000, guid: 2c5292ba5cf254919a6b9e2b18e04f49, type: 3}
-  rushHourSpawnInterval: 7
+  rushHourSpawnInterval: 15
   rushHourSpawnVariance: 7
   gameController: {fileID: 1551209976}
 --- !u!4 &1399833445
@@ -9579,7 +9579,7 @@ MonoBehaviour:
   maxTip: 5
   timeRemainingForMaxTip: 30
   timeRemainingForMinTip: 5
-  depreciationRate: 0
+  CSTipModifier: 1
 --- !u!114 &1551209972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9812,7 +9812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customerSatisfaction: 0.5
   CSIncreaseRate: 0.05
-  CSDecreaseRate: 0.05
+  CSDecreaseRate: 0.15
   slider: {fileID: 900222980}
 --- !u!1 &1575498603
 GameObject:

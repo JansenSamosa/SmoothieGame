@@ -32,6 +32,10 @@ public class CustomerLineController : MonoBehaviour
     }
 
     void Update() {
+        if(gameController.isRushHour && timeToNextSpawn > rushHourSpawnInterval + spawnIntervalVariance) {
+            timeToNextSpawn = rushHourSpawnInterval + Random.Range(-rushHourSpawnVariance, rushHourSpawnVariance);
+        }
+
         if(Time.time - prevSpawnTime >= timeToNextSpawn) {
             CreateRandomCustomer();
 
