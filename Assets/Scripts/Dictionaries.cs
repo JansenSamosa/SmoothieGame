@@ -7,6 +7,11 @@ using RotaryHeart.Lib.SerializableDictionary;
 public class LiquidMaterialsDict : SerializableDictionaryBase<string, Material> {
 }
 
+[System.Serializable] 
+public class IngredientSpritesDict : SerializableDictionaryBase<string, Sprite> {
+
+}
+
 [System.Serializable]
 public struct Recipe {
     public string result;
@@ -24,10 +29,14 @@ public struct DrinkOrderInfo {
     public float volumeOfDrink;
 }
 
+
 public class Dictionaries : MonoBehaviour
 {                       
     [SerializeField]  
     public LiquidMaterialsDict liquidMaterials;
+
+    [SerializeField]  
+    public IngredientSpritesDict ingredientSprites;
  
     [SerializeField]
     public Recipe[] recipes;
