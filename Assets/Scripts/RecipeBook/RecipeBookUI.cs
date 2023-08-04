@@ -9,6 +9,8 @@ public class RecipeBookUI : MonoBehaviour
     [SerializeField] private Transform recipesParent;
     [SerializeField] private GameObject recipeUITemplatePrefab;
 
+    [SerializeField] private GameObject playerDrag;
+
     private Animator recipeBookAC;
 
     void Start() {
@@ -27,5 +29,6 @@ public class RecipeBookUI : MonoBehaviour
 
     public void OpenOrClose() {
         recipeBookAC.SetBool("show", !recipeBookAC.GetBool("show"));
+        playerDrag.SetActive(!recipeBookAC.GetBool("show"));
     }
 }
