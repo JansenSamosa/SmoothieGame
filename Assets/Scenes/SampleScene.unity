@@ -18930,6 +18930,7 @@ MonoBehaviour:
     - banana
     - mango
     - avocado
+    - ice
     liquidBase: water
     liquidVolume: 40
     timeToBlend: 5
