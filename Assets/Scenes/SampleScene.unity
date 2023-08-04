@@ -10758,6 +10758,9 @@ MonoBehaviour:
     - raspberry
     - blueberry
     - green tea
+    - vanilla
+    - peach
+    - watermelon
     _keys:
     - strawberry
     - banana
@@ -10773,6 +10776,9 @@ MonoBehaviour:
     - raspberry
     - blueberry
     - green tea
+    - vanilla
+    - peach
+    - watermelon
     _values:
     - {fileID: 21300000, guid: b72023ef6c5c54ebb94ee8c520cfe2e9, type: 3}
     - {fileID: 21300000, guid: 50e0347d981414d189ff77217bc6e69c, type: 3}
@@ -10788,6 +10794,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: c715a9f7f4d044049ad333bf06306ed0, type: 3}
     - {fileID: 21300000, guid: 26b4d8692c5e74d17bd9dc28bcbe961b, type: 3}
     - {fileID: 21300000, guid: ffd9c3886ceba4432871778627f9f67f, type: 3}
+    - {fileID: 21300000, guid: a9436a583a5db4ccfad049bc57c157d2, type: 3}
+    - {fileID: 21300000, guid: c549cabc0e9504b56a64b9171d8962bc, type: 3}
+    - {fileID: 21300000, guid: 458b96fa7bc9e4c409f9b7f0b8bb2630, type: 3}
   recipes:
   - result: _empty
     resultVolume: 0

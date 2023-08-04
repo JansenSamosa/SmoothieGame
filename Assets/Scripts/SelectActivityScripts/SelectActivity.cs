@@ -51,7 +51,7 @@ public class SelectActivity : MonoBehaviour
         
         int currentDay = PlayerPrefs.GetInt("day-of-week", 0);
         currentDay += 1;
-        currentDay = Mathf.Clamp(currentDay, 0, 6);
+        if(currentDay > 6 || currentDay < 0) currentDay = 0;
         PlayerPrefs.SetInt("day-of-week", currentDay);
 
         SceneManager.LoadScene("SelectActivityScene");
