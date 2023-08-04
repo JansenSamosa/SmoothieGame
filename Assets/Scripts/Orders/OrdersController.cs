@@ -144,7 +144,7 @@ public class OrdersController : MonoBehaviour
         }
 
         tipAmount = Mathf.Clamp(tipAmount, 0, maxTip);
-        tipAmount = tipAmount * (CSTipModifier + customerSatisfactionController.customerSatisfaction);
+        tipAmount = tipAmount * (CSTipModifier * customerSatisfactionController.currentTipMultiplier);
     
         moneyController.AddMoney(order.totalCost);
         moneyController.PlayGainLossAnim(order.totalCost, animPos, false);
