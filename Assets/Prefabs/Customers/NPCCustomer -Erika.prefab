@@ -1526,7 +1526,7 @@ MonoBehaviour:
   timeLimitToTakeOrder: 75
   timerUI: {fileID: 8895550265120988825}
   nameOfCustomer: Erika
-  preferredDrink: smoothie-strawberry
+  preferredDrink: Green Tea
 --- !u!1 &7707008986024296245
 GameObject:
   m_ObjectHideFlags: 0

@@ -1692,7 +1692,7 @@ MonoBehaviour:
   timeLimitToTakeOrder: 75
   timerUI: {fileID: 8098336627995138261}
   nameOfCustomer: James
-  preferredDrink: smoothie-banana-avocado
+  preferredDrink: Peachy Keen
 --- !u!1 &7349877265571232429
 GameObject:
   m_ObjectHideFlags: 0

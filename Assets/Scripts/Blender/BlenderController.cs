@@ -36,7 +36,7 @@ public class BlenderController : MonoBehaviour
             for(int i = 0; i < recipes.Length; i++) {
                 float newVolume = CheckRecipe(recipes[i]);
 
-                if(newVolume > volumeToMake) {
+                if(newVolume >= volumeToMake) {
                     volumeToMake = newVolume;
                     drinkToMake = recipes[i].result;
                     blendWaitTimeMultiplier = volumeToMake / recipes[i].resultVolume;
