@@ -1724,7 +1724,7 @@ MonoBehaviour:
   timeLimitToTakeOrder: 90
   timerUI: {fileID: 9055655884721951965}
   nameOfCustomer: Sherry
-  preferredDrink: smoothie-banana
+  preferredDrink: Pineapple Paradise
 --- !u!1 &8713362827830371027
 GameObject:
   m_ObjectHideFlags: 0

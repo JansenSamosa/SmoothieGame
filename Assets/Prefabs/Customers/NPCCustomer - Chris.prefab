@@ -1634,7 +1634,7 @@ MonoBehaviour:
   timeLimitToTakeOrder: 90
   timerUI: {fileID: 7416838345976762669}
   nameOfCustomer: Chris
-  preferredDrink: smoothie-strawberry-banana
+  preferredDrink: Strawberry Banana Twist
 --- !u!1 &7727161163737729396
 GameObject:
   m_ObjectHideFlags: 0
