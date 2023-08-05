@@ -18874,6 +18874,14 @@ MonoBehaviour:
     liquidBase: water
     liquidVolume: 40
     timeToBlend: 3
+  - result: Morning Sunshine
+    resultVolume: 50
+    ingredients:
+    - banana
+    - ice
+    liquidBase: Orange Juice
+    liquidVolume: 40
+    timeToBlend: 3
   - result: Pineapple Paradise
     resultVolume: 50
     ingredients:
@@ -19029,14 +19037,6 @@ MonoBehaviour:
     liquidBase: milk
     liquidVolume: 40
     timeToBlend: 4
-  - result: Morning Sunshine
-    resultVolume: 50
-    ingredients:
-    - banana
-    - ice
-    liquidBase: Orange Juice
-    liquidVolume: 40
-    timeToBlend: 3
   - result: Blue Velvet
     resultVolume: 50
     ingredients:
