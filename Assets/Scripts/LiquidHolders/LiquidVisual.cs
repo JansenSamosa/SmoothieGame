@@ -15,14 +15,22 @@ public class LiquidVisual : MonoBehaviour
     }
 
     void Update() {
+        try {
+            UpdateVisual();
+        } catch {
+            Debug.Log("crash");
+        }
+    }
+
+    public void UpdateVisual() {
         Vector3 newScale = transform.localScale;
         newScale.y = Mathf.Clamp(controller.volumeOfLiquid/controller.maxVolume, 0.05f, 1);  
         transform.localScale = newScale;
 
         for(int i = 0; i < liquidMeshes.Length; i++) {
-            if(liquidMeshes[i].material != materials[controller.liquid]) {
+            //if(liquidMeshes[i].material != materials[controller.liquid]) {
                 liquidMeshes[i].material = materials[controller.liquid];
-            }
+            //}
         }
     }
 }
