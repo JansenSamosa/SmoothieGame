@@ -8,7 +8,11 @@ public class CustomerController : MonoBehaviour
     // states = "in line" or "ordering" or "picking up" or "leaving"
     public string npcState = "in line"; 
 
-    public DialogueSystem dialogue;
+    //old dialogue system
+    //public DialogueSystem dialogue;
+
+    //new dialogue system
+    public Dialogue dialogue;
 
     // Order the customer wants to place
     private Order customerOrder; 
@@ -42,8 +46,8 @@ public class CustomerController : MonoBehaviour
         customerOrder.customerOfOrder = this;
 
         // create dialogue for this customer based on the order and specific customer
-        string newDialogue = "Hello! My name is " + nameOfCustomer + ". I would like a " + customerOrder.drinks[0].drinkName + " please.";
-        dialogue.SetDialogue(newDialogue);
+        //string newDialogue = "Hello! My name is " + nameOfCustomer + ". I would like a " + customerOrder.drinks[0].drinkName + " please.";
+        //dialogue.SetDialogue(newDialogue);
 
         // determine where the customer will go to pick up the order
         float randomX = Random.Range(pickUpZoneLeftCorner.x, pickUpZoneRightCorner.x);
@@ -71,16 +75,17 @@ public class CustomerController : MonoBehaviour
     }
 
     void HandleInLineState() {
-        dialogue.dialogueEnabled = false;
+        //dialogue.dialogueEnabled = false;
     }
     
     void HandleOrderingState() {
         //Tracks the players response to dialogue
         int playerResponse = dialogue.playerResponse;
+        Debug.Log("playerResponse " + playerResponse);
 
         switch(playerResponse) {
             case 1:
-                dialogue.dialogueEnabled = false;
+                //dialogue.dialogueEnabled = false;
                 customerOrder.timeMax = timeLimitToTakeOrder;
                 customerOrder.timeRemaining = timeLimitToTakeOrder - realTimePassed;
                 ordersController.PlaceOrder(customerOrder);
@@ -94,7 +99,7 @@ public class CustomerController : MonoBehaviour
 
                 break;
             default:
-                dialogue.dialogueEnabled = true;
+                //dialogue.dialogueEnabled = true;
                 break;
         }
     }
@@ -108,7 +113,7 @@ public class CustomerController : MonoBehaviour
     }
     
     void HandleUndefinedState() {
-        dialogue.dialogueEnabled = false;
+        //dialogue.dialogueEnabled = false;
     }
 
     void incrementTimeLimitToTakeCustomerOrder() {
